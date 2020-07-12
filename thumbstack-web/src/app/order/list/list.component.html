@@ -1,0 +1,49 @@
+
+<div class="m-4">
+    <div class="row p-2">
+        <div class="col-8">
+            <h1 class="page-title h3">Orders</h1>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-primary shadow-sm text-uppercase" (click)="onAdd()">Add</button>
+        </div>
+    </div>
+
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link" [ngClass]="{ 'active': tabSelection === 'Active' }" (click)="onTabSelection('Active')">Active</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [ngClass]="{ 'active': tabSelection === 'Completed' }" (click)="onTabSelection('Completed')">Completed</a>
+      </li>
+    </ul>
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Total Itmes</th>
+            <th scope="col">Food Total</th>
+            <th scope="col" *ngIf="tabSelection === 'Completed'">Tip Amount</th>
+            <th scope="col" *ngIf="tabSelection === 'Completed'">Total Amount</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of renderItems; let idx = index ">
+            <th scope="row">{{ idx + 1 }}</th>
+            <td>{{ order.customerName }}</td>
+            <td>{{ order.items.length }}</td>
+            <td>{{ order.foodTotal }}</td>
+            <td *ngIf="tabSelection === 'Completed'">{{ order.tipAmount }}</td>
+            <td *ngIf="tabSelection === 'Completed'">{{ order.totalAmount }}</td>
+            <td *ngIf="tabSelection === 'Active'">
+              <button type="button" class="btn btn-primary" (click)="onEdit(idx)">Update</button>
+              <button type="button" class="btn btn-secondary" (click)="onCheckout(idx)">Checkout</button>
+            </td>
+            <td *ngIf="tabSelection === 'Completed'"><button type="button" class="btn btn-primary" (click)="onDetails(idx)">View Details</button></td>
+          </tr>
+        </tbody>
+      </table>
+</div>

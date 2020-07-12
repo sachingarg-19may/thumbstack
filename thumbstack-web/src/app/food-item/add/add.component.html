@@ -1,0 +1,41 @@
+
+<div class="m-4" *ngIf="form">
+    <div class="row p-2">
+        <div class="col-8">
+            <h1 class="page-title h3">Add Food Item</h1>
+        </div>
+    </div>
+    
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-6 form-group row">
+                <label class="col-form-label required">Item Name</label>
+                <div class="col-sm">
+                    <input type="text" class="form-control" formControlName="name">
+                    <div *ngIf="!form.controls.name.valid" class="invalid-feedback show-error">
+                        Name is required
+                        <div *ngFor="let error of getErrors('name')">
+                            <span *ngIf="error === 'required'">Name is required</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 form-group row">
+                <label class="col-form-label required">Cost</label>
+                <div class="col-sm">
+                    <input type="number" class="form-control" formControlName="cost">
+                    <div *ngIf="!form.controls.cost.valid" class="invalid-feedback show-error">
+                        <div *ngFor="let error of getErrors('cost')">
+                            <span *ngIf="error.required">Cost is required</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-right">
+                <button class="btn btn-primary ml-3 mt-2 text-uppercase" [disabled]="isLoading" type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>

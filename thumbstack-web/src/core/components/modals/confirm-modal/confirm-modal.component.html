@@ -1,0 +1,19 @@
+<div class="modal-content">
+  <div class="modal-header">
+      <div class="saving-conf-modal-logo">
+        
+      </div>
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+      <div class="col conf-msg">
+        {{message}}
+      </div>
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-block btn-info" (click)="activeModal.close(false)">Cancel</button>
+      <button type="button" class="btn btn-block btn-primary mt-0" (click)="activeModal.close(true)">Confirm</button>
+  </div>
+</div>

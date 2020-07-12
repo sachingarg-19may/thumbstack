@@ -1,0 +1,33 @@
+ .modal-header {
+   border-bottom: 0;
+   text-align: center !important;
+ }
+
+ .modal-body {
+    text-align: center !important;
+ }
+
+ .modal-footer {
+   border-top: 0;
+ }
+
+ .saving-modal-logo img {
+   width: 9rem;
+ }
+
+ .loader {
+   display: inline-block;
+ }
+
+ .loader img {
+   width: 3rem;
+ }
+
+ .saving-msg {
+   display: inline-block;
+   text-align: left;
+   font-weight: 700;
+   color: #4155C5;
+   vertical-align: middle;
+   margin-left: 1rem;
+ }

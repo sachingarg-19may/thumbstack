@@ -1,0 +1,61 @@
+
+<div class="m-4" *ngIf="currentOrder">
+    <div class="row p-2">
+        <div class="col-8">
+            <h1 class="page-title h3">Order Details</h1>
+        </div>
+    </div>
+    
+        <div class="row">
+            <div class="col-6 form-group row">
+                <label class="col-form-label required">Customer Name</label>
+                <div class="col-sm">
+                    <input type="text" class="form-control" readonly [value]="currentOrder.customerName">
+                </div>
+            </div>
+        </div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Item</th>
+                <th scope="col">Cost</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+              </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let item of currentOrder.items; let idx = index ">
+                    <tr>
+                        <th scope="row">{{ idx + 1 }}</th>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.cost }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ getTotal(idx) }}</td>
+                      </tr>
+                </ng-container>
+              
+              <tr class="table-primary">
+                <th scope="row"></th>
+                <td>Food Total</td>
+                <td></td>
+                <td>{{ getTotalQuantity() }}</td>
+                <td>{{ currentOrder.foodTotal }}</td>
+              </tr>
+              <tr class="table-secondary">
+                <th scope="row"></th>
+                <td> Tip ({{ currentOrder.tipPercentage}} %)</td>
+                <td></td>
+                <td></td>
+                <td>{{ currentOrder.tipAmount }}</td>
+              </tr>
+              <tr class="table-success">
+                <th scope="row"></th>
+                <td>Grand Total</td>
+                <td></td>
+                <td></td>
+                <td>{{ currentOrder.totalAmount }}</td>
+              </tr>
+            </tbody>
+          </table>
+</div>

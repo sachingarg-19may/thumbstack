@@ -3,3 +3,5 @@
 ################################################################################
 
 /thumbstack.api/thumbstack.webapi/bin
+/thumbstack.api/thumbstack.webapi/obj
+/thumbstack.api/thumbstack.webapi/Properties

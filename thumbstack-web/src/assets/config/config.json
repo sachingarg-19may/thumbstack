@@ -1,0 +1,6 @@
+{
+    "envName": "local",
+    "production": false,
+    "baseUrl": "http://dev.ft.api.farmtree.org/",
+    "version": 1
+  }

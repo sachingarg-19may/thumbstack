@@ -1,0 +1,29 @@
+
+<div class="m-4">
+    <div class="row p-2">
+        <div class="col-8">
+            <h1 class="page-title h3">Food Items</h1>
+        </div>
+        <div class="col-4">
+            <button class="btn btn-primary shadow-sm text-uppercase" [routerLink]="'/fooditems/add'">Add</button>
+        </div>
+    </div>
+    
+    
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let food of foodItems; let idx = index ">
+            <th scope="row">{{ idx + 1 }}</th>
+            <td>{{ food.name }}</td>
+            <td>{{ food.cost }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>

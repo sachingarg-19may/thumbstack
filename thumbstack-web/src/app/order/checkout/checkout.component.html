@@ -1,0 +1,27 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <div class="saving-conf-modal-logo">
+          
+        </div>
+        <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="col conf-msg">
+          Are you sure you want to checkout this order?
+        </div>
+        <div class="row">
+            <div class="col-6 form-group row">
+                <label class="col-form-label required">Tip (In Percentage)</label>
+                <div class="col-sm">
+                    <input type="number" class="form-control" [(ngModel)]="tip">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-block btn-info" (click)="activeModal.dismiss('Cross click')">Cancel</button>
+        <button type="button" class="btn btn-block btn-primary mt-0" (click)="onClose()">Confirm</button>
+    </div>
+  </div>
